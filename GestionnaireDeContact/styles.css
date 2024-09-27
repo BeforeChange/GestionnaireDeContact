@@ -1,0 +1,666 @@
+/* Styles globaux */
+html * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    padding: 1%;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1C1C1C; /* Fond sombre */
+    color: #EAEAEA; /* Texte clair */
+}
+
+#gauche {
+    padding: 2%;
+    width: 60%;
+    height: 100%;
+    background-color: #2C2C2C; /* Fond de la section gauche */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+#haut {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #444; /* Bordure plus fonc�e */
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #333; /* Fond de l'input sombre */
+    color: #EAEAEA; /* Texte clair dans l'input */
+}
+
+#index button {
+    color: white;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background-color: #333;
+    border-style: none;
+    padding: 1%;
+    border: 1px solid #444;
+}
+
+#index button:hover {
+    scale: 1.01;
+    background-color: rgba(255, 255, 255, 0.179);
+    box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.3); /* Effet au focus */
+}
+
+#index input:focus {
+    outline: none;
+    box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.3); /* Effet au focus */
+}
+
+#resultat {
+    height: 93%;
+    width: 90%;
+    background-color: #2C2C2C; /* Fond sombre pour la section des r�sultats */
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    overflow-y: auto;
+    padding: 15px;
+}
+
+#droit {
+    padding: 2%;
+    width: 30%;
+    height: 100%;
+    background-color: #2C2C2C; /* Fond sombre pour la section droite */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+#add {
+    height: 25px;
+    width: 25px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #EAEAEA; /* Titre clair */
+    margin-bottom: 20px;
+}
+
+#list {
+    width: 90%;
+    height: 93%;
+    background-color: #2C2C2C;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    overflow-y: auto;
+}
+
+#list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#list::-webkit-scrollbar-thumb {
+    background-color: #444; /* Couleur de la barre de d�filement */
+    border-radius: 10px;
+}
+
+/* Template de contact pour la liste des r�sultats */
+.result-contact {
+    background-color: #333; /* Fond sombre des contacts */
+    border: 1px solid #444; /* Bordure fonc�e */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.result-contact:hover {
+    transform: translateY(-3px);
+    background-color: #444; /* Changement de fond au survol */
+}
+
+.result-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.result-info h3 {
+    font-size: 1.3rem;
+    color: #EAEAEA; /* Nom du contact en clair */
+}
+
+.result-info .status {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.status.pro {
+    background-color: #4CAF50; /* Badge vert pour professionnel */
+    color: white;
+}
+
+.status.not-pro {
+    background-color: #F44336; /* Badge rouge pour particulier */
+    color: white;
+}
+
+.result-contact p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #EAEAEA; /* Texte des contacts en clair */
+}
+
+#index input::placeholder {
+    color: #888; /* Placeholder plus clair */
+}
+
+#index input:hover {
+    box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Effets de transition */
+#index input,
+button,
+#resultat,
+.result-contact {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#index input:hover, .result-contact:hover {
+    background-color: #444; /* Changement de fond au survol */
+}
+
+/* Template de contact */
+.contact {
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.contact:hover {
+    transform: translateY(-5px);
+    background-color: #444;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-info h2 {
+    font-size: 1.5rem;
+    color: #EAEAEA; /* Couleur des noms de contact */
+}
+
+.contact-info .status {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.status.pro {
+    background-color: #4CAF50; /* Badge professionnel en vert */
+    color: white;
+}
+
+.status.not-pro {
+    background-color: #F44336; /* Badge particulier en rouge */
+    color: white;
+}
+
+.contact p {
+    margin-bottom: 5px;
+    color: #EAEAEA; /* Couleur du texte */
+}
+
+/* Effets de transition */
+#index input,
+button,
+#list,
+.contact {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#index input:hover, .contact:hover {
+    background-color: #444;
+}
+
+#ligne1 input {
+    width: 49%;
+}
+
+#ligne1 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#ajout {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#ajout input[type="tel"], input[type="text"], input[type="email"] {
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+#gauche2 {
+    padding: 2%;
+    width: 40%;
+    height: 50%;
+    background-color: #2C2C2C; /* Fond de la section gauche */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+#contactPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+#input {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#input label {
+    margin-left: 10px;
+}
+
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.ligne1P .status {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.ligne1P h1 {
+    margin: 0;
+}
+
+.ligne1P {
+    align-items: center;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#ligne1PC {
+    width: 100%;
+    height:20%;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+#ligne1PC div {
+    height: 30%;
+    width: 48%;
+}
+
+#info {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#info div {
+    height: 50px;;
+}
+
+#info div:not(#ligne1PC) {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 6px;
+    background-color: transparent;
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+                -1px -1px 6px rgba(255, 255, 255, 0.4);
+    transition: 0.3s;
+}
+
+#info div:not(#ligne1PC).active {
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+                -1px -1px 6px rgba(255, 255, 255, 0.4),
+                inset 3px 3px 10px rgba(0,0,0,1),
+                inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+  }
+
+.champ {
+    width: 90%;
+}
+
+#com {
+    height: 40% !important;
+    width: 90%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    gap: 8px;
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-color: rgb(20, 20, 20);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .lable {
+    line-height: 20px;
+    font-size: 17px;
+    color: white;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+  }
+  
+  .button:hover .svg-icon {
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .button2 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .svgIcon {
+    width: 12px;
+    transition-duration: .3s;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .button2:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: .3s;
+    background-color: rgb(255, 69, 69);
+    align-items: center;
+  }
+  
+  .button2:hover .svgIcon {
+    width: 50px;
+    transition-duration: .3s;
+    transform: translateY(60%);
+  }
+  
+  .button2::before {
+    position: absolute;
+    top: -20px;
+    content: "Delete";
+    color: white;
+    transition-duration: .3s;
+    font-size: 2px;
+  }
+  
+  .button2:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(30px);
+    transition-duration: .3s;
+  }
+
+  #topLine {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: end;
+  }
+
+  #confirm {
+    padding: 4%;
+    width: 500px;
+    height: 300px;
+    background-color: #ffb8ea;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#confirm h1 {
+    height: 70%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#confirmPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(confirm.gif);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#buttonLigne {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-31 {
+    align-items: center;
+    appearance: none;
+    background-color: #4CAF50; /* Couleur de fond verte */
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(0, 128, 0, 0.4) 0 2px 4px, rgba(0, 128, 0, 0.3) 0 7px 13px -3px, #2E7D32 0 -3px 0 inset; /* Ombres en vert */
+    box-sizing: border-box;
+    color: #FFFFFF; /* Couleur du texte blanche pour contraster avec le fond vert */
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 48px;
+    width: 45%;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+  }
+  
+  .button-31:focus {
+    box-shadow: #2E7D32 0 0 0 1.5px inset, rgba(0, 128, 0, 0.4) 0 2px 4px, rgba(0, 128, 0, 0.3) 0 7px 13px -3px, #2E7D32 0 -3px 0 inset; /* Ajustement de l'ombre lors du focus */
+  }
+  
+  .button-31:hover {
+    box-shadow: rgba(0, 128, 0, 0.4) 0 4px 8px, rgba(0, 128, 0, 0.3) 0 7px 13px -3px, #2E7D32 0 -3px 0 inset; /* Ombre lors du survol */
+    transform: translateY(-2px);
+  }
+  
+  .button-31:active {
+    box-shadow: #2E7D32 0 3px 7px inset; /* Ombre lors de l'activation */
+    transform: translateY(2px);
+  }
+
+  .button-32 {
+    align-items: center;
+    appearance: none;
+    background-color: #F44336; /* Couleur de fond rouge */
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(255, 87, 34, 0.4) 0 2px 4px, rgba(255, 87, 34, 0.3) 0 7px 13px -3px, #D32F2F 0 -3px 0 inset; /* Ombres en rouge */
+    box-sizing: border-box;
+    color: #FFFFFF; /* Couleur du texte blanche pour contraster avec le fond rouge */
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 48px;
+    width: 45%;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+  }
+  
+  .button-32:focus {
+    box-shadow: #D32F2F 0 0 0 1.5px inset, rgba(255, 87, 34, 0.4) 0 2px 4px, rgba(255, 87, 34, 0.3) 0 7px 13px -3px, #D32F2F 0 -3px 0 inset; /* Ajustement de l'ombre lors du focus */
+  }
+  
+  .button-32:hover {
+    box-shadow: rgba(255, 87, 34, 0.4) 0 4px 8px, rgba(255, 87, 34, 0.3) 0 7px 13px -3px, #D32F2F 0 -3px 0 inset; /* Ombre lors du survol */
+    transform: translateY(-2px);
+  }
+  
+  .button-32:active {
+    box-shadow: #D32F2F 0 3px 7px inset; /* Ombre lors de l'activation */
+    transform: translateY(2px);
+  }

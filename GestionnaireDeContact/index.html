@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="ISO-8859-1">
+    <title>Page de Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body id="index">
+    <div id="gauche">
+        <div id="haut">
+            <input type="text" id="recherche" placeholder="Recherchez ici... (par prénom)" onchange="onInputChange()"><button>Chercher...</button>
+        </div>
+        <div id="resultat"></div>
+    </div>
+    <div id="droit">
+        <button onclick="openAddWindow()">+</button>
+        <h1>Contact</h1>
+        <div id="list"><div class="contact">
+                                <div class="contact-info">
+                                    <h2>John Doe</h2>
+                                    <p class="status true">True</p>
+                                </div>
+                                <p>Téléphone : +33 6 12 34 56 78</p>
+                                <p>Email : johndoe@example.com</p>
+                                <p>Adresse : Je sais pas</p>
+                            </div><div class="contact">
+                                <div class="contact-info">
+                                    <h2>Jane Smith</h2>
+                                    <p class="status false">False</p>
+                                </div>
+                                <p>Téléphone : +33 6 23 45 67 89</p>
+                                <p>Email : janesmith@example.com</p>
+                                <p>Adresse : Je sais pas</p>
+                            </div><div class="contact">
+                                <div class="contact-info">
+                                    <h2>Robert Brown</h2>
+                                    <p class="status true">True</p>
+                                </div>
+                                <p>Téléphone : +33 6 34 56 78 90</p>
+                                <p>Email : robertbrown@example.com</p>
+                                <p>Adresse : Je sais pas</p>
+                            </div><div class="contact">
+                                <div class="contact-info">
+                                    <h2>Emily Johnson</h2>
+                                    <p class="status false">False</p>
+                                </div>
+                                <p>Téléphone : +33 6 45 67 89 01</p>
+                                <p>Email : emilyjohnson@example.com</p>
+                                <p>Adresse : Je sais pas</p>
+                            </div><div class="contact">
+                                <div class="contact-info">
+                                    <h2>Michael Davis</h2>
+                                    <p class="status false">False</p>
+                                </div>
+                                <p>Téléphone : +33 6 56 78 90 12</p>
+                                <p>Email : michaeldavis@example.com</p>
+                                <p>Adresse : Je sais pas</p>
+                            </div></div>
+    </div>
+    <script type="text/javascript">
+        function openAddWindow() {
+            window.external.AddWindowOpen();
+        }
+
+        function onInputChange() {
+            var inputValue = document.getElementById('recherche').value;
+            window.external.InputValueChanged(inputValue);
+        }
+    </script>
+
+</body>
+</html>

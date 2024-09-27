@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajout de Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        function envoyerFormulaire() {
+            var prenom = document.getElementById("prenom").value;
+            var nom = document.getElementById("nom").value;
+            var telephone = document.getElementById("telephone").value;
+            var email = document.getElementById("email").value;
+            var adresse = document.getElementById("adresse").value;
+            var professionnel = document.getElementById("professionnel") == null ? false : document.getElementById("professionnel").checked;
+
+            // Appel de la méthode .NET exposée
+            window.external.ReceiveFormData(prenom, nom, telephone, email, adresse, professionnel);
+        }
+    </script>
+</head>
+<body>
+    <h1>Ajout de contact</h1>
+    <div id="ajout">
+        <div id="ligne1">
+            <input type="text" id="prenom" placeholder="Prénom">
+            <input type="text" id="nom" placeholder="Nom">
+        </div>
+        <input type="tel" id="telephone" placeholder="+41 xx xxx xx xx">
+        <input type="email" id="email" placeholder="Entrez votre email.">
+        <input type="text" id="adresse" placeholder="Adresse">
+        <div>
+            <input type="checkbox" id="pro"><label for="pro">Professionnel ?</label>
+        </div>
+        <button type="button" onclick="envoyerFormulaire()">Confirmer</button>
+    </div>
+</body>
+</html>

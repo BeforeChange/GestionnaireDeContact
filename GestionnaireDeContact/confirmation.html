@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body id="confirmPage">
+    <div id="confirm">
+        <h1>Êtes vous sûr ?</h1>
+        <div id="buttonLigne">
+            <button onclick="buttonClick(true)" class="button-31" role="button">Oui</button>
+            <button onclick="buttonClick(false)" class="button-32" role="button">Non</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function buttonClick(boolean) {
+            window.external.button_click(boolean);
+        }
+    </script>
+</body>
+</html>
