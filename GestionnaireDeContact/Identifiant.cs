@@ -12,7 +12,7 @@ namespace GestionnaireDeContact
     {
         public string Generate(string lastNameFirstNamePhone)
         {
-            string key = GenerateKey(lastNameFirstNamePhone+"a");
+            string key = GenerateKey(lastNameFirstNamePhone);
             return key;
         }
 
