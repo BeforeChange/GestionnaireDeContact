@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le Contact</title>
+    <link rel="stylesheet" href="editContact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body id="modifyContactPage">
+    <div id="gauche2">
+        <div id="topLine">
+            <button onclick="retour()">Retour</button>
+        </div>
+        <div class="ligne1P">
+            <h1>Modifier le Profil de <span id="firstNameDisplay">Jane</span> <span id="lastNameDisplay">Smith</span></h1>
+        </div>
+        <div id="info">
+            <div id="ligne1PC">
+                <label for="lastNameInput">Nom:</label>
+                <input type="text" id="lastNameInput" value="Akbar">
+                <label for="firstNameInput">Prénom:</label>
+                <input type="text" id="firstNameInput" value="Alain">
+                <label for="pro">Professionnel ? : </label>
+                <input id="pro" type="checkbox" checked="checked">
+            </div>
+            <div>
+                <label for="contactPhoneInput">Téléphone:</label>
+                <input type="text" id="contactPhoneInput" value="+41 65 345 65 43">
+            </div>
+            <div>
+                <label for="emailInput">Email :</label>
+                <input type="text" id="emailInput" value="Alain.AkaAbar@gmail.com">
+            </div>            
+            <div>
+                <label for="addressInput">Adresse:</label>
+                <input type="text" id="addressInput" value="Rue des fideles de daesh">
+            </div>
+        </div>
+        <button class="button" onclick="saveChanges()">
+            Enregistrer les changements
+        </button>
+    </div>
+    <script>
+        function saveChanges() {
+            const prenom = document.getElementById("firstNameInput").value;
+            const nom = document.getElementById("lastNameInput").value;
+            const telephone = document.getElementById("contactPhoneInput").value;
+            const adresse = document.getElementById("addressInput").value;
+            const isPro = document.getElementById("pro").checked;
+            const email = document.getElementById("emailInput").value;
+
+            window.external.SaveContact(prenom, nom, telephone, adresse, isPro, email);
+        }
+
+        function retour() {
+            window.external.Annuler();
+        }
+    </script>
+</body>
+</html>

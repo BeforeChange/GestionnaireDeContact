@@ -3,22 +3,55 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajout de Contact</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="addContact.css">
     <script type="text/javascript">
         function envoyerFormulaire() {
-            var prenom = document.getElementById("prenom").value;
-            var nom = document.getElementById("nom").value;
-            var telephone = document.getElementById("telephone").value;
-            var email = document.getElementById("email").value;
-            var adresse = document.getElementById("adresse").value;
-            var professionnel = document.getElementById("professionnel") == null ? false : document.getElementById("professionnel").checked;
+            var prenom = document.getElementById("prenom").value.trim();
+            var nom = document.getElementById("nom").value.trim();
+            var telephone = document.getElementById("telephone").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var adresse = document.getElementById("adresse").value.trim();
+            var professionnel = document.getElementById("professionnel") ? document.getElementById("professionnel").checked : false;
 
-            // Appel de la méthode .NET exposée
-            window.external.ReceiveFormData(prenom, nom, telephone, email, adresse, professionnel);
+            if (prenom === "") {
+                alert("Le prénom est requis.");
+                return;
+            }
+            if (nom === "") {
+                alert("Le nom est requis.");
+                return;
+            }
+            if (telephone === "") {
+                alert("Le numéro de téléphone est requis.");
+                return;
+            }
+            if (!/^\+41 \d{2} \d{3} \d{2} \d{2}$/.test(telephone)) {
+                alert("Le numéro de téléphone doit être au format +41 xx xxx xx xx.");
+                return;
+            }
+            if (email === "") {
+                alert("L'email est requis.");
+                return;
+            }
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                alert("Veuillez entrer un email valide.");
+                return;
+            }
+            if (adresse === "") {
+                alert("L'adresse est requise.");
+                return;
+            }
+
+            window.external.ConfirmationWindowOpen(prenom, nom, telephone, email, adresse, professionnel);
+        }
+
+        function retour() {
+            window.external.Annuler();
         }
     </script>
 </head>
 <body>
+    <button onclick="retour()">Retour</button>
     <h1>Ajout de contact</h1>
     <div id="ajout">
         <div id="ligne1">
@@ -29,7 +62,7 @@
         <input type="email" id="email" placeholder="Entrez votre email.">
         <input type="text" id="adresse" placeholder="Adresse">
         <div>
-            <input type="checkbox" id="pro"><label for="pro">Professionnel ?</label>
+            <input type="checkbox" id="professionnel"><label for="professionnel">Professionnel ?</label>
         </div>
         <button type="button" onclick="envoyerFormulaire()">Confirmer</button>
     </div>

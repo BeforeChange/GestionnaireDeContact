@@ -80,40 +80,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddContact.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddContact.Designer.cs">
-      <DependentUpon>AddContact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="confirmationPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="confirmationPage.Designer.cs">
-      <DependentUpon>confirmationPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Contact.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="base.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="base.Designer.cs">
+      <DependentUpon>base.cs</DependentUpon>
     </Compile>
-    <Compile Include="FilePath.cs" />
-    <Compile Include="GlobalContext.cs" />
-    <Compile Include="Identifiant.cs" />
-    <Compile Include="JSInterop.cs" />
+    <Compile Include="IdentifiantGenerator.cs" />
     <Compile Include="Json.cs" />
+    <Compile Include="ListesPages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddContact.resx">
-      <DependentUpon>AddContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="confirmationPage.resx">
-      <DependentUpon>confirmationPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="base.resx">
+      <DependentUpon>base.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
